@@ -14,7 +14,7 @@ int main(){
 	//triangle  
 	//   *
 	//  ***
-    // *****
+    	// *****
 	//*******
 	string aStars = "*";
 	string aSpaces = "";
