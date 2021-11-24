@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
 int main(){
 	int height;
@@ -10,67 +11,81 @@ int main(){
 	cin >> height;
 	cout << endl;
 	
-	//triangle
+	//triangle  
+	//   *
+	//  ***
+    // *****
+	//*******
 	string aStars = "*";
 	string aSpaces = "";
 	cout << "Triangle" << endl << endl;
-	for(int i = 1; i < height; i++){
-		aSpaces += " ";
-	}
+	
+	int counter = height;
 	for(int i = 0; i < height; i++){
 		
+		for(int i = 0; i < counter; i++){
+		aSpaces += " ";
+		}	
 		cout << aSpaces << aStars << endl;
-		aStars = "*" + aStars + "*";
-		aSpaces = aSpaces.substr(0,aSpaces.length()-1);
-		
+		aStars = aStars + "**";
+		aSpaces = "";
+		counter--;	
 	}
+	
+	
 	//right triangle
+	// *
+	// **
+	// ***
+	// ****
+	
 	string bStars = "*";
 	cout << "Right Triangle" << endl << endl;
 	for(int i = 0; i < height; i++){
 		cout << bStars<<endl;
 		bStars += "*";
 	}
-	
 	cout << endl;
-	
-	
-	cout << "Right Triangle" << endl << endl;
-	for(int )
-	cout << endl;	
+		
 	
 	//Reflected Right Triangle
-	string cStars = "*";
-	string cSpaces = "";
-	int middle = 1;
+	//   *
+	//  **
+	// ***
+	//****
+	// ***
+	//  **
+	//   *
+	
 	cout << "Reflected Right Triangle" << endl << endl;
-	
-	for(int i = 1; i < height; i++){
-		cSpaces += " ";
-	}
-	
-	for(int i = 0; i < 2; i++){
-		if(middle > height){
-			for(int j = 0; j < height; j++){
-				cStars  = cStars.substr(0,cStars.length()-1);
-				cSpaces = " " + cSpaces;
-				cout << cSpaces << cStars << endl;
-			}
+	string stars = "*";
+	string spaces = "";
+	int line = 1 ;
+	int spaceCount;
+	int starCount;
+
+	for(int i = 0; i < height*2; i++){
+		spaceCount = abs(height - line);
+		starCount = abs(height - spaceCount);
+		while (spaceCount > 0){
+			cout << " ";
+			spaceCount--;
 		}
-		else{
-			for(int k = 0; k < height; k++){
-				cout << cSpaces << cStars << endl;
-				cStars += "*";
-				cSpaces = cSpaces.substr(0,cSpaces.length()-1);
-				middle++;	
-			}
-			cStars = cStars.substr(0,cStars.length()-1);			
-		}		
+		while (starCount > 0){
+			cout << "*";
+			starCount--;
+		}
+		line++;
+		cout << endl;
 	}
-	
-	cout << endl;
 	
 	//double rectangle
+	//* * * *
+	// * * *
+	//* * * *
+	// * * *
+	//* * * *
+	
 	string rowOne = "";
 	string rowTwo = "";
 	cout << "Double Rectangle" << endl;
@@ -79,12 +94,10 @@ int main(){
 		rowOne += "* ";
 	}
 	
-	for(int j = 0; j < height; j++){
+	for(int j = 0; j < height-1; j++){
 		rowTwo += " *";
 	}
-	
-	rowTwo = rowTwo.substr(0,rowTwo.length()-1);
-	
+		
 	for(int k = 0; k < height/2 ; k++){
 		cout << rowOne << endl << rowTwo << endl;
 	}
